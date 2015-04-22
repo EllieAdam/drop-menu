@@ -1,0 +1,174 @@
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+ul{padding:0px;}
+li{
+  list-style:none;
+}
+@media only screen and (min-width: 961px){
+    	#menu-toggle{
+    		display: none;
+    	}
+
+	    #mainnav{
+	    	width: 100%;
+	    	z-index: 20;
+	    	position: absolute;
+		   	top: 0px;
+			  left: 0;
+	    }
+	    	#mainnav > ul > li{
+	    		float:left;
+	    		display: block;
+	    		height:50px;
+	    		line-height: 50px;
+	    		width:14.28%;/*100/7*/
+	    		text-align: center;
+	    		position: relative;
+	    	}
+
+	    		#mainnav > ul > li > a{
+	    			display: inline-block;
+	    			padding:10px;
+	    			width: 100%;
+	    			line-height: 20px;
+	    			text-decoration: none;
+	    			font-size:18px;
+	    			font-size:1.125rem;
+	    			border-left:1px solid #000;
+	    		}
+
+	    		#mainnav ul ul{
+	    			position: absolute;
+	    			left:-9999px;
+	    			top:44px;
+	    			background:#fff;
+	    			border:1px solid #ccc;
+	    			width:100%;
+	    			text-align: left;
+	    		}
+	    			#mainnav ul li:hover ul, #mainnav ul li.focus ul{
+	    				left:0px;
+	    			}
+
+	    				#mainnav ul ul li a{
+	    					display: block;
+	    					height:50px;
+	    					line-height: 50px;
+	    					padding-left:10px;
+	    				}
+
+	    }
+
+    	@media only screen and (max-width: 960px){
+
+    		#menu-toggle{
+    			position: absolute;
+    			right:10px;
+    			top:10px;
+    			display: block;
+    			height:40px;
+    			line-height: 40px;
+    			padding-left:50px;
+    			width:100px;/*set to 1 to hide text*/
+    			overflow: hidden;
+    		}
+	    		#menu-toggle:after, #menu-toggle span:before, #menu-toggle span:after {
+					border-radius: 1px;
+					height: 5px;
+					width: 35px;
+					background: #000;
+					display: block;
+					content: '';
+					position: absolute;
+					left:0px;
+					cursor: pointer;
+				}
+
+				#menu-toggle:after{
+					top:45%;
+				}
+				#menu-toggle span:before {
+					top: 10px;
+				}
+				#menu-toggle span:after {
+					bottom: 8px;
+				}
+				#menu-toggle span:before, #menu-toggle span:after {
+					transition: all 500ms ease-in-out;
+				}
+					#menu-toggle.open:after {
+						transform: translate(-999px, 0)
+					}
+
+				#menu-toggle.open span:before {
+					transform: translate(0, 8px) rotate(45deg);
+
+				}
+				#menu-toggle.open span:after {
+					transform: translate(0, -8px) rotate(-45deg);
+
+				}
+
+    		#mainnav{
+    			max-height: 0px;
+    			overflow: hidden;
+    			-moz-transition:max-height 1s;
+    			transition:max-height  1s;
+    			position: absolute;
+    			top:50px;
+    			left:0px;
+    			width:100%;
+    			background:#fff;
+    			z-index: 10;
+    		}
+    			#mainnav.open{
+    				max-height: 2000px;
+    			}
+    			#mainnav > ul > li{
+    				float:none;
+    				position: relative;
+    				border-top: 1px solid #000;
+    			}
+    				#mainnav > ul > li.hasChildren:after{
+						content:'+';
+						position: absolute;
+						right:20px;
+						top:17px;
+						display: block;
+						width:20px;
+						height:20px;
+						font-size:20px;
+						pointer-events:none;
+						line-height: 20px;
+						text-align: center;
+					}
+						#mainnav > ul > li.open.hasChildren:after{content:'-';}
+    				#mainnav ul li a{
+    					display: block;
+    					height:50px;
+    					line-height: 1em;
+    					font-size:25px;
+    					font-size:1.5625rem;
+    					padding:12px;
+    					text-decoration: none;
+    					color:#000;
+    					position: relative;
+    				}
+
+
+    				#mainnav > ul > li > ul{
+    					max-height:0px;
+    					overflow: hidden;
+    				}
+    					#mainnav > ul > li.open > ul{
+    						max-height:1000px;
+    					}
+    						#mainnav > ul > li > ul > li{
+    							padding-left:20px;
+    						}
+
+    	}
